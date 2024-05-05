@@ -20,6 +20,11 @@ For example for the vesting contract the functional requirements are like so:
 
 FOr the first excercise the user may seek to implement NFT escrow - a contract that validates withdrawal depending not on time of the transation but if the transaction has a specific NFT. Take a look at the [code example](https://github.com/aleeusgr/sniffle).
 
+## Architecture
+
+![image](https://github.com/aleeusgr/potential-robot/assets/36756030/c01818cc-3b5d-4057-bda8-2689ab7a6378)
+
+
 ## Contributing
 
 - Test the project.
