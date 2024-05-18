@@ -6,7 +6,7 @@ is used to architect a decentralzied application using eUTXO model and Helios, a
 1. `npm install`
 2. `npm test`
 
-![image](https://github.com/aleeusgr/potential-robot/assets/36756030/fc378aff-6a9a-45c7-82ad-6b2050eda582)
+![image](https://github.com/aleeusgr/potential-robot/assets/36756030/be350495-9e0c-4de9-976c-78630409ec30)
 
 
 ## Usage
