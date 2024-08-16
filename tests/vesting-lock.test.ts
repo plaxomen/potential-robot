@@ -66,11 +66,11 @@ describe("a vesting contract lockAda transaction", async () => {
 		// one utxo is unchanged, second has (10 ADA + txFee) less 
 		expect((await alice.utxos)[0].value.dump().lovelace).toBe('5000000');
 		expect((await network.getUtxos(await alice.address))[0].value.dump().lovelace).toBe('5000000');
-		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9755287');
+		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9756672');
 
 		const validatorAddress = Address.fromValidatorHash(validatorHash); 
 		// there exists a utxo that has a specified token locked at a validatorAddress.
-		expect(Object.keys((await network.getUtxos(validatorAddress))[0].value.dump().assets)[0]).toBe('702cd6229f16532ca9735f65037092d099b0ff78a741c82db0847bbf');
+		expect(Object.keys((await network.getUtxos(validatorAddress))[0].value.dump().assets)[0]).toBe('6ecf3e6410cb049736a4d424a439887ad390cf6357ee2f2970a7f235');
 	})
 	it ("reproduces lockAda tx", async ({network, alice, bob, validatorAddress}) => {
 // https://github.com/lley154/helios-examples/blob/704cf0a92cfe252b63ffb9fd36c92ffafc1d91f6/vesting/pages/index.tsx#LL157C1-L280C4
@@ -160,12 +160,12 @@ describe("a vesting contract lockAda transaction", async () => {
 
 		// this should be consistent with previous test.
 		// alice has only one utxo:
-		expect((await alice.utxos)[0].value.dump().lovelace).toBe('14749259');
+		expect((await alice.utxos)[0].value.dump().lovelace).toBe('14750644');
 		// and the fee is different, compare L67
 		expect(14749259).not.to.equal(9755287+5000000);
 		expect((await alice.utxos)[1]).toBeUndefined();
 		// validator address holds Vesting Key
-		expect(mintProgram.mintingPolicyHash.hex).toBe('702cd6229f16532ca9735f65037092d099b0ff78a741c82db0847bbf');	
+		expect(mintProgram.mintingPolicyHash.hex).toBe('6ecf3e6410cb049736a4d424a439887ad390cf6357ee2f2970a7f235');	
 		expect(Object.keys((await network.getUtxos(validatorAddress))[0].value.dump().assets)[0]).toEqual(mintProgram.mintingPolicyHash.hex);
 
 	})

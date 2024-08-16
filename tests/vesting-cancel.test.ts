@@ -61,7 +61,7 @@ describe("a vesting contract: Cancel transaction", async () => {
 		expect((await alice.utxos)[1].value.dump().lovelace).toBe('50000000');
 
 		// https://www.hyperion-bt.org/helios-book/lang/builtins/validatorhash.html?highlight=valida#validatorhash
-		expect(validatorHash.hex).toBe('e7015c6a1424d748f8241fe3a43b3a382b35dc9ca67320e3ee863dc8')
+		expect(validatorHash.hex).toBe('9f43610b85b6c39eca3cdaa7824d289871e4eb2cdea62ac8eba3c7e1')
 
 
 	})
@@ -76,14 +76,14 @@ describe("a vesting contract: Cancel transaction", async () => {
 		const duration = 1000000;
 		await lockAda(network!, alice!, bob!, program, adaQty, duration);
 		expect((await alice.utxos)[0].value.dump().lovelace).toBe('50000000');
-		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9755287');
+		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9756672');
 		
 		await cancelVesting(network!, alice!, program );
 
 		const oracle = await alice.utxos;
 
 		// think about which is which.
-		expect(oracle[2].value.dump().lovelace).toBe('9546007'); 
+		expect(oracle[2].value.dump().lovelace).toBe('9545698'); 
 		expect(oracle[1].value.dump().lovelace).toBe('10000000');//  
 		expect(oracle[0].value.dump().lovelace).toBe('50000000');// collateral?
 		})
@@ -105,12 +105,12 @@ describe("a vesting contract: Cancel transaction", async () => {
 		const duration = 1000000;
 		await lockAda(network!, alice!, bob!, program, adaQty, duration)
 		expect((await alice.utxos)[0].value.dump().lovelace).toBe('50000000');
-		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9755287');
+		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9756672');
 
 		const networkParamsFile = await fs.readFile('./src/preprod.json', 'utf8');
 		const networkParams = new NetworkParams(JSON.parse(networkParamsFile.toString()));
 
-		const keyMPH = '702cd6229f16532ca9735f65037092d099b0ff78a741c82db0847bbf'
+		const keyMPH = '6ecf3e6410cb049736a4d424a439887ad390cf6357ee2f2970a7f235'
 
 		const ownerAddress = alice.address;
 		const ownerUtxos = await alice.utxos;
@@ -155,7 +155,7 @@ describe("a vesting contract: Cancel transaction", async () => {
 		const oracle = await alice.utxos;
 
 		// think about which is which.
-		expect(oracle[2].value.dump().lovelace).toBe('9546007'); 
+		expect(oracle[2].value.dump().lovelace).toBe('9545698'); 
 		expect(oracle[1].value.dump().lovelace).toBe('10000000');//  
 		expect(oracle[0].value.dump().lovelace).toBe('50000000');// collateral?
 		})

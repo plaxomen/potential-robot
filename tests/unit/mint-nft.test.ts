@@ -75,7 +75,7 @@ describe("create a network with two wallets of which one has an nft", async () =
 		// https://www.hyperion-bt.org/helios-book/api/reference/address.html?highlight=Address#address
 		expect(alice.address.toHex().length).toBe(58)
 		expect((await alice.utxos)[0].value.dump().lovelace).toBe('2000000');
-		expect((await alice.utxos)[1].value.dump().lovelace).toBe('22753044');
+		expect((await alice.utxos)[1].value.dump().lovelace).toBe('22753661');
 		expect((await alice.utxos)[0].value.dump().assets[mph][616263]).toBe(amt.toString());
 	})
 

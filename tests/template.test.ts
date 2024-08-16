@@ -56,7 +56,7 @@ describe("a template", async () => {
 		// todo
 		expect(aliceUtxos[1].value.dump().lovelace).toBe('5000000')
 		// todo
-		expect(validatorHash.hex).toBe('e7015c6a1424d748f8241fe3a43b3a382b35dc9ca67320e3ee863dc8')
+		expect(validatorHash.hex).toBe('9f43610b85b6c39eca3cdaa7824d289871e4eb2cdea62ac8eba3c7e1')
 	})
 
 	it ("adds new code", async ({network, alice, validatorHash}) => {

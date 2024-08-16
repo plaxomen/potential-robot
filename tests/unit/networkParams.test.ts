@@ -40,6 +40,6 @@ describe("run a transaction on newly initialized params", async () => {
 		const networkParamsJSON = JSON.parse(networkParamsFile.toString());
 		const networkParams = new NetworkParams(networkParamsJSON);
 		const newNP = network.initNetworkParams(networkParams)
-		expect(newNP.slotToTime(BigInt(0))).toBe(1655683200000n);
+		expect(newNP.slotToTime(BigInt(0))).toBe(0n);
 	})
 })

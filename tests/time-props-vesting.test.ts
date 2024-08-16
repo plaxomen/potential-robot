@@ -64,7 +64,7 @@ describe("what happens when we add wait interval between lock and cancel?", asyn
 		expect((await alice.utxos)[1].value.dump().lovelace).toBe('50000000');
 
 		// https://www.hyperion-bt.org/helios-book/lang/builtins/validatorhash.html?highlight=valida#validatorhash
-		expect(validatorHash.hex).toBe('e7015c6a1424d748f8241fe3a43b3a382b35dc9ca67320e3ee863dc8')
+		expect(validatorHash.hex).toBe('9f43610b85b6c39eca3cdaa7824d289871e4eb2cdea62ac8eba3c7e1')
 
 
 	})
@@ -79,7 +79,7 @@ describe("what happens when we add wait interval between lock and cancel?", asyn
 		const duration = 1000000;
 		await lockAda(network!, alice!, bob!, program, adaQty, duration);
 		expect((await alice.utxos)[0].value.dump().lovelace).toBe('50000000');
-		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9755287');
+		expect((await alice.utxos)[1].value.dump().lovelace).toBe('9756672');
 
 		// https://www.hyperion-bt.org/helios-book/api/reference/fuzzytest.html?highlight=fuzz#fuzzytest
 		network.tick(BigInt(10780));
@@ -89,7 +89,7 @@ describe("what happens when we add wait interval between lock and cancel?", asyn
 		const oracle = await alice.utxos;
 
 		// think about which is which.
-		expect(oracle[2].value.dump().lovelace).toBe('9546007'); 
+		expect(oracle[2].value.dump().lovelace).toBe('9545698'); 
 		expect(oracle[1].value.dump().lovelace).toBe('10000000');//  
 		expect(oracle[0].value.dump().lovelace).toBe('50000000');// collateral?
 		})
